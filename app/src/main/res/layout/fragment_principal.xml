@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context=".PrincipalFragment">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_centerVertical="true"
+                android:layout_centerInParent="true">
+            <Button
+                    android:text="Nuevo calculo"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="100dp" android:id="@+id/btnNuevo"
+                    android:layout_margin="5dp"
+                    android:textSize="20sp"
+                    android:drawableTop="@drawable/ic_add_black_24dp"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:textColor="@android:color/black" android:textStyle="bold"
+                    android:textAlignment="center"/>
+            <Button
+                    android:text="Historial"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp" android:id="@+id/btnHistorial"
+                    android:layout_margin="5dp"
+                    android:textSize="20sp"
+                    android:drawableTop="@drawable/ic_history"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:textColor="@android:color/black" android:textStyle="bold"
+                    android:textAlignment="center"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+</FrameLayout>
