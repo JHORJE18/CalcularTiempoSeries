@@ -12,68 +12,127 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-            <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
-                    android:id="@+id/text_field_boxes"
+            <com.github.florent37.materialtextfield.MaterialTextField
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    app:primaryColor="@color/colorAccent"
-                    app:secondaryColor="@android:color/background_light"
-                    app:labelText="Nombre">
+                    app:mtf_labelColor="@color/colorAccent"
+                    app:mtf_image="@drawable/ic_movie_black_24dp">
 
-                <studio.carbonylgroup.textfieldboxes.ExtendedEditText
-                        android:id="@+id/extended_edit_text"
-                        android:textColor="@color/colorAccent"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Nombre de la serie"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="15sp" />
 
-            </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+            </com.github.florent37.materialtextfield.MaterialTextField>
 
             <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
+                <com.github.florent37.materialtextfield.MaterialTextField
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_margin="5dp"
-                        android:layout_marginTop="10dp"
-                        app:primaryColor="@color/colorAccent"
-                        app:labelText="Horas"
-                        app:secondaryColor="@android:color/background_light">
+                        android:layout_weight="3"
+                        android:layout_margin="10dp"
+                        app:mtf_image="@drawable/ic_bookmark_border_black_24dp"
+                        app:mtf_labelColor="@color/colorAccent">
 
-                    <studio.carbonylgroup.textfieldboxes.ExtendedEditText
-                            android:textColor="@color/colorAccent"
-                            app:suffix=" h"
-                            app:suffixTextColor="@android:color/background_light"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                    <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Número episodios"
+                            android:singleLine="true"
+                            android:inputType="number"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="15sp"/>
 
-                </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+                </com.github.florent37.materialtextfield.MaterialTextField>
 
-                <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
+                <com.github.florent37.materialtextfield.MaterialTextField
                         android:layout_width="match_parent"
-                        android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:layout_marginTop="10dp"
-                        app:primaryColor="@color/colorAccent"
-                        app:labelText="Min"
-                        app:secondaryColor="@android:color/background_light">
+                        android:layout_weight="3"
+                        android:layout_margin="10dp"
+                        app:mtf_image="@drawable/ic_book_black_24dp"
+                        app:mtf_labelColor="@color/colorAccent">
 
-                    <studio.carbonylgroup.textfieldboxes.ExtendedEditText
-                            android:textColor="@color/colorAccent"
-                            app:suffix=" min"
-                            app:suffixTextColor="@android:color/background_light"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                    <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Número Temporadas"
+                            android:singleLine="true"
+                            android:inputType="number"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="15sp"/>
 
-                </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
-
+                </com.github.florent37.materialtextfield.MaterialTextField>
             </LinearLayout>
 
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp" android:background="@drawable/bordes_formulario" android:padding="5dp">
+
+                <TextView
+                        android:text="Duración por episodio:"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" android:layout_weight="2"
+                        android:textColor="@color/colorAccent" android:textSize="25sp"
+                        android:layout_marginLeft="10dp" android:layout_marginRight="5dp"
+                        android:layout_marginTop="20dp"/>
+
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp">
+
+                    <com.github.florent37.materialtextfield.MaterialTextField
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3"
+                            app:mtf_image="@drawable/ic_access_time_black_24dp"
+                            app:mtf_labelColor="@color/colorAccent" android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp">
+
+                        <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Horas"
+                                android:singleLine="true"
+                                android:inputType="number"
+                                android:text="0"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="15sp"/>
+
+                    </com.github.florent37.materialtextfield.MaterialTextField>
+
+                    <com.github.florent37.materialtextfield.MaterialTextField
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3"
+                            app:mtf_image="@drawable/ic_access_time_black_24dp"
+                            app:mtf_labelColor="@color/colorAccent" android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp">
+
+                        <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Minutos"
+                                android:singleLine="true"
+                                android:inputType="number"
+                                android:text="00"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="15sp"/>
+
+                    </com.github.florent37.materialtextfield.MaterialTextField>
+                </LinearLayout>
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
