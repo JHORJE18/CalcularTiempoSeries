@@ -34,8 +34,6 @@ class HistorialFragment : Fragment() {
         listener?.setTitle("Historial")
         listener?.setBackButton(true)
 
-
-
         series = ArrayList()
         series?.add(Serie("Por 13 Razones", "https://images-na.ssl-images-amazon.com/images/I/918KkftCUFL.jpg"))
         series?.add(Serie("Por 13 Razones", "https://images-na.ssl-images-amazon.com/images/I/918KkftCUFL.jpg"))
