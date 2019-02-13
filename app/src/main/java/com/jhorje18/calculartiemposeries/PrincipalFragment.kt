@@ -22,6 +22,8 @@ class PrincipalFragment : Fragment(),View.OnClickListener {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_principal, container, false)
+        activityCallback!!.setTitle(getString(R.string.app_name))
+
         view.btnNuevo.setOnClickListener(this)
         view.btnHistorial.setOnClickListener(this)
 
@@ -44,5 +46,6 @@ class PrincipalFragment : Fragment(),View.OnClickListener {
 
     interface OnFragmentInteractionListener {
         fun onButtonClick(btn: Button)
+        fun setTitle(title: String)
     }
 }

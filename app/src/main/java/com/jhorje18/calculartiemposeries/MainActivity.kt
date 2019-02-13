@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.fragment_principal.*
 
-class MainActivity : AppCompatActivity(), PrincipalFragment.OnFragmentInteractionListener{
+class MainActivity : AppCompatActivity(), PrincipalFragment.OnFragmentInteractionListener, NuevoCalculoFragment.OnFragmentInteractionListener{
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity(), PrincipalFragment.OnFragmentInteractio
     fun addFragment(fragment: Fragment, addToBackStack: Boolean, tag: String) {
         val manager = supportFragmentManager
         val ft = manager.beginTransaction()
+        ft.setCustomAnimations(R.anim.abc_popup_enter, R.anim.abc_popup_exit, R.anim.abc_popup_enter, R.anim.abc_popup_exit);
 
         if (addToBackStack) {
             ft.addToBackStack(tag)
@@ -44,5 +45,10 @@ class MainActivity : AppCompatActivity(), PrincipalFragment.OnFragmentInteractio
                 addFragment(NuevoCalculoFragment(), true, "Principal")
             }
         }
+    }
+
+    // Eventos titulo
+    override fun setTitle(title: String) {
+        txtTitulo.setText(title)
     }
 }
