@@ -1,28 +1,24 @@
-package com.jhorje18.calculartiemposeries
-
+package com.jhorje18.calculartiemposeries.Fragmentos
 
 import android.content.Context
-import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.Toast
-import kotlinx.android.synthetic.main.fragment_principal.*
+import com.jhorje18.calculartiemposeries.R
 import kotlinx.android.synthetic.main.fragment_principal.view.*
-import java.util.*
 
 class PrincipalFragment : Fragment(),View.OnClickListener {
 
-    var activityCallback :PrincipalFragment.OnFragmentInteractionListener? = null
+    var activityCallback : OnFragmentInteractionListener? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_principal, container, false)
         activityCallback!!.setTitle(getString(R.string.app_name))
+        activityCallback!!.setBackButton(false)
 
         view.btnNuevo.setOnClickListener(this)
         view.btnHistorial.setOnClickListener(this)
@@ -47,5 +43,6 @@ class PrincipalFragment : Fragment(),View.OnClickListener {
     interface OnFragmentInteractionListener {
         fun onButtonClick(btn: Button)
         fun setTitle(title: String)
+        fun setBackButton(valor: Boolean)
     }
 }

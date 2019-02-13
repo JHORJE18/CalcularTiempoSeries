@@ -1,4 +1,4 @@
-package com.jhorje18.calculartiemposeries
+package com.jhorje18.calculartiemposeries.Fragmentos
 
 
 import android.content.Context
@@ -7,20 +7,23 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import com.jhorje18.calculartiemposeries.R
+import kotlinx.android.synthetic.main.fragment_nuevo_calculo.*
 import kotlinx.android.synthetic.main.fragment_nuevo_calculo.view.*
-import kotlinx.android.synthetic.main.fragment_principal.view.*
 import me.everything.android.ui.overscroll.OverScrollDecoratorHelper
 
 class NuevoCalculoFragment : Fragment() {
 
 
-    var activityCallback :NuevoCalculoFragment.OnFragmentInteractionListener? = null
+    var activityCallback : OnFragmentInteractionListener? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_nuevo_calculo, container, false)
+        OverScrollDecoratorHelper.setUpOverScroll(view.scrollNuevoCalculo)
+
         activityCallback!!.setTitle("Nuevo calculo")
+        activityCallback!!.setBackButton(true)
 
         return view
     }
@@ -37,5 +40,6 @@ class NuevoCalculoFragment : Fragment() {
 
     interface OnFragmentInteractionListener {
         fun setTitle(title: String)
+        fun setBackButton(valor: Boolean)
     }
 }

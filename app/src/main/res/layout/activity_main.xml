@@ -10,15 +10,30 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-        <TextView
-                android:text="Calcular Tiempo Series"
+        <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:autoSizeTextType="uniform"
-                android:layout_height="wrap_content" android:id="@+id/txtTitulo" android:textStyle="bold"
-                android:textSize="30sp" android:textAlignment="center"
-                android:textColor="@color/colorAccent"
-                android:paddingBottom="5dp" android:paddingLeft="10dp" android:paddingRight="10dp"
-                android:paddingTop="10dp" android:background="@color/colorPrimaryDark"/>
+                android:layout_height="wrap_content" android:background="@color/colorPrimaryDark">
+            <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" app:srcCompat="@drawable/ic_back_bar"
+                    android:id="@+id/backButton" android:layout_weight="6"
+                    android:background="@drawable/button_round" android:visibility="invisible"
+                    android:layout_marginLeft="10dp" android:onClick="onCllick"/>
+            <TextView
+                    android:text="Calcular Tiempo Series"
+                    android:layout_width="match_parent"
+                    android:autoSizeTextType="uniform"
+                    android:layout_height="wrap_content" android:id="@+id/txtTitulo" android:textStyle="bold"
+                    android:textSize="30sp" android:textAlignment="center"
+                    android:textColor="@color/colorAccent"
+                    android:paddingBottom="5dp" android:paddingLeft="10dp" android:paddingRight="10dp"
+                    android:paddingTop="10dp" android:layout_weight="1"/>
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:id="@+id/textView" android:layout_weight="6"
+                    android:layout_marginRight="10dp"/>
+        </LinearLayout>
         <TextView
                 android:layout_width="match_parent"
                 android:layout_height="2dp" android:background="@android:color/background_light"
