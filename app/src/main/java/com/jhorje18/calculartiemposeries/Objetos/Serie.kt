@@ -2,7 +2,7 @@ package com.jhorje18.calculartiemposeries.Objetos
 
 import android.net.Uri
 
-class Serie (nombre: String, foto: String){
+class Serie {
 
     var nombre: String =""
     var foto: String = ""
@@ -12,8 +12,10 @@ class Serie (nombre: String, foto: String){
     var numero_horas = 0
     var numero_minutos = 0
 
-    init {
+    constructor()  {    }
+
+    constructor(nombre: String, imagen:String){
         this.nombre = nombre
-        this.foto = foto
+        this.foto = imagen
     }
 }

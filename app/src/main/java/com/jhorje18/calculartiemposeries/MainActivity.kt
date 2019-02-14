@@ -12,22 +12,44 @@ import android.widget.*
 import com.jhorje18.calculartiemposeries.Fragmentos.HistorialFragment
 import com.jhorje18.calculartiemposeries.Fragmentos.NuevoCalculoFragment
 import com.jhorje18.calculartiemposeries.Fragmentos.PrincipalFragment
+import com.jhorje18.calculartiemposeries.Objetos.Serie
+import com.jhorje18.calculartiemposeries.SQLite.SeriesSQLiteOpenHelper
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_principal.*
 
 class MainActivity : AppCompatActivity(), PrincipalFragment.OnFragmentInteractionListener, NuevoCalculoFragment.OnFragmentInteractionListener, HistorialFragment.OnFragmentInteractionListener{
 
+    var BBDD_Series: SeriesSQLiteOpenHelper? = null
+    val TAG_PRUEBA = "#PRUEBA_TEMPORAL"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Animaciones para elementos
+        // Preparamos BBDD
+        BBDD_Series = SeriesSQLiteOpenHelper(this)
 
         // Cargamos Fragment por defecto
         addFragment(PrincipalFragment(), false, "Principal")
+
+        /**     PRUEBA      **/
+        crearSerie(Serie("Por 13 Razones", "https://images-na.ssl-images-amazon.com/images/I/41-807ZAjHL._SX327_BO1,204,203,200_.jpg"))
+        crearSerie(Serie("Silicon Valley", "https://www.formulatv.com/images/series/posters/900/900/1_m1.jpg"))
+        crearSerie(Serie("Doctor Who", "https://m.media-amazon.com/images/M/MV5BNDY1YmZhZjEtY2E3NC00M2VkLThlZmUtODczMmNiZjMxMWRhXkEyXkFqcGdeQXVyNzA5NTYxMDg@._V1_.jpg"))
+
+        Log.d(TAG_PRUEBA, "Series añadidas a la BBDD")
+
+        for (item:Serie in obtenerListadoSeries() as ArrayList<Serie>){
+            Log.d(TAG_PRUEBA, "Serie cargada: " + item.nombre)
+        }
     }
 
-    // Añade Fragmentos al principal
+    /**
+     * Añade Fragments a la pantalla principal
+     * @param  fragment Fragment que se va a añadir
+     * @param addToBackStack Establece si se desea añadir a la cola ( En caso falso, se establece como el único Fragment )
+     * @param tag Etiqueta para conocer que Fragment se esta cargando ( Only Dev )
+     */
     fun addFragment(fragment: Fragment, addToBackStack: Boolean, tag: String) {
         val manager = supportFragmentManager
         val ft = manager.beginTransaction()
@@ -59,6 +81,14 @@ class MainActivity : AppCompatActivity(), PrincipalFragment.OnFragmentInteractio
                 addFragment(HistorialFragment(), true, "Historial")
             }
         }
+    }
+
+    // CONTROLES BBDD SERIES
+    fun obtenerListadoSeries() :ArrayList<Serie>{
+        return BBDD_Series!!.getListadoSeries()
+    }
+    fun crearSerie(serie: Serie) {
+        BBDD_Series!!.addSerie(serie)
     }
 
     // Eventos titulo
