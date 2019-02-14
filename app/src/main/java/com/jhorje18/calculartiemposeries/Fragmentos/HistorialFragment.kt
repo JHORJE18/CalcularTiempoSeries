@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.jhorje18.calculartiemposeries.Adaptadores.AdapterHistory
+import com.jhorje18.calculartiemposeries.MainActivity
 import com.jhorje18.calculartiemposeries.Objetos.Serie
 import com.jhorje18.calculartiemposeries.R
 import kotlinx.android.synthetic.main.fragment_historial.*
@@ -25,6 +26,8 @@ class HistorialFragment : Fragment() {
     var layoutManager :RecyclerView.LayoutManager? = null
     var adaptador :AdapterHistory? = null
 
+    var base_activity :MainActivity? = null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,14 +36,11 @@ class HistorialFragment : Fragment() {
         val view =  inflater.inflate(R.layout.fragment_historial, container, false)
         listener?.setTitle("Historial")
         listener?.setBackButton(true)
-
+        base_activity = activity as MainActivity
         series = ArrayList()
-        series?.add(Serie("Por 13 Razones", "https://images-na.ssl-images-amazon.com/images/I/918KkftCUFL.jpg"))
-        series?.add(Serie("Por 13 Razones", "https://images-na.ssl-images-amazon.com/images/I/918KkftCUFL.jpg"))
-        series?.add(Serie("Por 13 Razones", "https://images-na.ssl-images-amazon.com/images/I/918KkftCUFL.jpg"))
-        series?.add(Serie("Por 13 Razones", "https://images-na.ssl-images-amazon.com/images/I/918KkftCUFL.jpg"))
-        series?.add(Serie("Silicon Valley", "https://i.blogs.es/6151cb/silicon-valley-opening/450_1000.jpg"))
-        series?.add(Serie("Por 13 Razones", "https://images-na.ssl-images-amazon.com/images/I/918KkftCUFL.jpg"))
+
+        // Cargamos valores
+        series = base_activity!!.obtenerListadoSeries()
 
         lista = view.recyclerHistory
         layoutManager = LinearLayoutManager(activity!!) as RecyclerView.LayoutManager?

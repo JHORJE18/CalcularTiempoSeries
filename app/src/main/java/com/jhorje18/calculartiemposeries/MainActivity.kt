@@ -31,17 +31,6 @@ class MainActivity : AppCompatActivity(), PrincipalFragment.OnFragmentInteractio
 
         // Cargamos Fragment por defecto
         addFragment(PrincipalFragment(), false, "Principal")
-
-        /**     PRUEBA      **/
-        crearSerie(Serie("Por 13 Razones", "https://images-na.ssl-images-amazon.com/images/I/41-807ZAjHL._SX327_BO1,204,203,200_.jpg"))
-        crearSerie(Serie("Silicon Valley", "https://www.formulatv.com/images/series/posters/900/900/1_m1.jpg"))
-        crearSerie(Serie("Doctor Who", "https://m.media-amazon.com/images/M/MV5BNDY1YmZhZjEtY2E3NC00M2VkLThlZmUtODczMmNiZjMxMWRhXkEyXkFqcGdeQXVyNzA5NTYxMDg@._V1_.jpg"))
-
-        Log.d(TAG_PRUEBA, "Series añadidas a la BBDD")
-
-        for (item:Serie in obtenerListadoSeries() as ArrayList<Serie>){
-            Log.d(TAG_PRUEBA, "Serie cargada: " + item.nombre)
-        }
     }
 
     /**
@@ -62,7 +51,7 @@ class MainActivity : AppCompatActivity(), PrincipalFragment.OnFragmentInteractio
         ft.commitAllowingStateLoss()
     }
 
-    public fun onCllick (View :View) {
+    fun onCllick (View :View) {
         when (View.id) {
             backButton.id ->{
                 onBackPressed()
@@ -91,12 +80,18 @@ class MainActivity : AppCompatActivity(), PrincipalFragment.OnFragmentInteractio
         BBDD_Series!!.addSerie(serie)
     }
 
-    // Eventos titulo
+    /**
+     * Metodo establece el titulo de la vista principal
+     * @param title Titulo que se colocara
+     */
     override fun setTitle(title: String) {
         txtTitulo.setText(title)
     }
 
-    // Eventos BackButton
+    /**
+     * Metodo que muestra o oculta el botón de atras
+     * @param valor Establece si se debe mostrar o no
+     */
     override fun setBackButton(valor: Boolean) {
         if (valor) {
             backButton.visibility = View.VISIBLE
