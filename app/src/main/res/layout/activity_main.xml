@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity" android:background="@color/colorPrimary">
+        tools:context=".MainActivity" android:background="?android:attr/colorPrimary">
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -13,7 +13,7 @@
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:background="@color/colorPrimaryDark">
+                android:layout_height="wrap_content" android:background="?android:attr/colorPrimaryDark">
             <ImageButton
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" app:srcCompat="@drawable/ic_back_bar"
@@ -26,13 +26,15 @@
                     android:autoSizeTextType="uniform"
                     android:layout_height="wrap_content" android:id="@+id/txtTitulo" android:textStyle="bold"
                     android:textSize="30sp" android:textAlignment="center"
-                    android:textColor="@color/colorAccent"
+                    android:textColor="?android:attr/colorAccent"
                     android:paddingBottom="5dp" android:paddingLeft="10dp" android:paddingRight="10dp"
                     android:paddingTop="10dp" android:layout_weight="1"/>
-            <TextView
+            <ImageButton
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" android:id="@+id/textView" android:layout_weight="6"
-                    android:layout_marginRight="10dp"/>
+                    android:layout_height="match_parent" app:srcCompat="@drawable/night_white_24dp"
+                    android:id="@+id/nightButton" android:layout_weight="6"
+                    android:background="@drawable/button_round" android:visibility="invisible"
+                    android:layout_marginLeft="10dp" android:onClick="onCllick"/>
         </LinearLayout>
         <TextView
                 android:layout_width="match_parent"

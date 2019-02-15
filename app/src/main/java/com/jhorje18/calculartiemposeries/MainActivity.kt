@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity(), PrincipalFragment.OnFragmentInteractio
 
     var BBDD_Series: SeriesSQLiteOpenHelper? = null
     val TAG_PRUEBA = "#PRUEBA_TEMPORAL"
+    var darkTheme: Boolean? = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +32,9 @@ class MainActivity : AppCompatActivity(), PrincipalFragment.OnFragmentInteractio
 
         // Cargamos Fragment por defecto
         addFragment(PrincipalFragment(), false, "Principal")
+
+        // Cargamos tema guardado en preferencias
+        darkTheme = false
     }
 
     /**
@@ -55,6 +59,19 @@ class MainActivity : AppCompatActivity(), PrincipalFragment.OnFragmentInteractio
         when (View.id) {
             backButton.id ->{
                 onBackPressed()
+            }
+            nightButton.id ->{
+                if (darkTheme!!){
+                    Log.d(TAG_PRUEBA, "Modo noche desactivado")
+                    setTheme(R.style.AppTheme)
+                    nightButton.setImageDrawable(getDrawable(R.drawable.night_white_24dp))
+                    darkTheme = false
+                } else {
+                    Log.d(TAG_PRUEBA, "Modo noche activado")
+                    setTheme(R.style.DarkTheme)
+                    nightButton.setImageDrawable(getDrawable(R.drawable.ic_sun_black_24dp))
+                    darkTheme = true
+                }
             }
         }
     }
@@ -95,8 +112,10 @@ class MainActivity : AppCompatActivity(), PrincipalFragment.OnFragmentInteractio
     override fun setBackButton(valor: Boolean) {
         if (valor) {
             backButton.visibility = View.VISIBLE
+            nightButton.visibility = View.VISIBLE
         } else {
             backButton.visibility = View.INVISIBLE
+            nightButton.visibility = View.INVISIBLE
         }
     }
 

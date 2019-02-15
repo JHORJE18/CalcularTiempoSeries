@@ -8,4 +8,12 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="DarkTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#646464</item>
+        <item name="colorPrimaryDark">#414141</item>
+        <item name="colorAccent">#E7E7E7</item>
+        <item name="android:background">#646464</item>
+    </style>
+
 </resources>

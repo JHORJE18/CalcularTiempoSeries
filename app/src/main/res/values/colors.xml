@@ -4,4 +4,5 @@
     <color name="colorPrimaryDark">#0016AE</color>
     <color name="colorAccent">#FFDE03</color>
     <color name="LigeroBlack">#46000000</color>
+    <color name="icon">#448AFF</color>
 </resources>
