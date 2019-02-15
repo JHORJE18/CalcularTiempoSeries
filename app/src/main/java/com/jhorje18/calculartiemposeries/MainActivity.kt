@@ -112,7 +112,6 @@ class MainActivity : AppCompatActivity(), PrincipalFragment.OnFragmentInteractio
     override fun setBackButton(valor: Boolean) {
         if (valor) {
             backButton.visibility = View.VISIBLE
-            nightButton.visibility = View.VISIBLE
         } else {
             backButton.visibility = View.INVISIBLE
             nightButton.visibility = View.INVISIBLE
