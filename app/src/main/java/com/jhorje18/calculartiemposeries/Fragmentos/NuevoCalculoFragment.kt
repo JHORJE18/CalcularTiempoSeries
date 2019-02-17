@@ -17,7 +17,6 @@ import me.everything.android.ui.overscroll.OverScrollDecoratorHelper
 
 class NuevoCalculoFragment : Fragment() {
 
-
     var activityCallback : OnFragmentInteractionListener? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -50,8 +49,8 @@ class NuevoCalculoFragment : Fragment() {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 view.countEpisodiosDia.text = progress.toString()
 
-                if (progress < 1) view.btnMenos.isActivated = false ; view.btnMenos.isActivated = true
-                if (progress == seekBar!!.max) view.btnMas.isActivated = false ; view.btnMas.isActivated = true
+                view.btnMenos.isActivated = (progress > 0)
+                view.btnMas.isActivated = (progress != seekBar!!.max)
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
@@ -63,22 +62,17 @@ class NuevoCalculoFragment : Fragment() {
         })
 
         // Eventos botones
+        view.btnMas.setOnClickListener {
+            sliderEpisodiosDia.progress = sliderEpisodiosDia.progress + 1
+        }
+        view.btnMenos.setOnClickListener {
+            sliderEpisodiosDia.progress = sliderEpisodiosDia.progress - 1
+        }
 
-
-        return view
-    }
-
-    fun onClick(view:View){
-        when(view.id){
-            btnMas.id ->{
-                // Incrementa
-                sliderEpisodiosDia.progress += sliderEpisodiosDia.progress
-            }
-            btnMenos.id ->{
-                // Disminuye
-                sliderEpisodiosDia.progress -= sliderEpisodiosDia.progress
             }
         }
+
+        return view
     }
 
     override fun onAttach(context: Context?) {
