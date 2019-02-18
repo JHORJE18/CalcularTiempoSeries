@@ -93,8 +93,13 @@ class NuevoCalculoFragment : Fragment() {
             // Añadir valores
             var serie_Guardar :Serie = Serie()
             serie_Guardar.nombre = inputNombre.text.toString()
+            serie_Guardar.numero_Episodios = inputNumEpisodios.text.toString().toInt()
+            serie_Guardar.numero_Temporadas = inputNumTemporadas.text.toString().toInt()
+            serie_Guardar.numero_horas = inputHorasEpisodio.text.toString().toInt()
+            serie_Guardar.numero_minutos = inputMinutosEpisodios.text.toString().toInt()
+            serie_Guardar.numero_episodiosXDia = sliderEpisodiosDia.progress.toInt()
 
-            // Guardar registro
+                // Guardar registro
             if (campos_validos){
                 activityCallback?.saveSerie(serie_Guardar)
                 activity?.onBackPressed()

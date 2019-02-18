@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import com.bumptech.glide.Glide
 import com.jhorje18.calculartiemposeries.Objetos.Serie
 import com.jhorje18.calculartiemposeries.R
 import kotlinx.android.synthetic.main.celda_historial.view.*
@@ -25,6 +24,8 @@ class AdapterHistory(items :ArrayList<Serie>): RecyclerView.Adapter<AdapterHisto
 		val item = items?.get(position)
 
 		holder.nombre?.text= item?.nombre
+		holder.numero_episodios?.text = item?.numero_Episodios.toString() + " Episodios"
+		holder.numero_temporadas?.text = item?.numero_Temporadas.toString() + " Temporadas"
 	}
 
 	override fun getItemCount(): Int {
@@ -41,12 +42,14 @@ class AdapterHistory(items :ArrayList<Serie>): RecyclerView.Adapter<AdapterHisto
 	class ViewHolder(vista: View): RecyclerView.ViewHolder(vista){
 		var vista = vista
 
-		var foto :ImageView? = null
 		var nombre :TextView? = null
+		var numero_episodios :TextView? = null
+		var numero_temporadas :TextView? = null
 
 		init {
-			foto = vista.celda_img
-			nombre = vista.celda_texto
+			nombre = vista.celda_nombre
+			numero_episodios = vista.celda_episodios
+			numero_temporadas = vista.celda_temporadas
 		}
 	}
 }
