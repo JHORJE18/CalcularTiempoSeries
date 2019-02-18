@@ -69,9 +69,6 @@ class NuevoCalculoFragment : Fragment() {
             sliderEpisodiosDia.progress = sliderEpisodiosDia.progress - 1
         }
 
-            }
-        }
-
         return view
     }
 
