@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SeekBar
+import com.jhorje18.calculartiemposeries.Objetos.Serie
 import com.jhorje18.calculartiemposeries.R
 import kotlinx.android.synthetic.main.fragment_nuevo_calculo.*
 import kotlinx.android.synthetic.main.fragment_nuevo_calculo.view.*
@@ -69,6 +70,37 @@ class NuevoCalculoFragment : Fragment() {
             sliderEpisodiosDia.progress = sliderEpisodiosDia.progress - 1
         }
 
+        view.btnCancel.setOnClickListener {
+            activity?.onBackPressed()
+        }
+        view.btnSave.setOnClickListener {
+            // Comprobaciones seguridad
+            var campos_validos = true;
+
+            if (view.inputNombre.text.toString().length == 0) {
+                campos_validos = false
+                view.inputNombre.setError("Es obligatorio introducir un nombre de la serie")
+            }
+            if (view.inputNumEpisodios.text.isEmpty() || view.inputNumEpisodios.text.toString().length < 1) {
+                campos_validos = false
+                view.inputNumEpisodios.setError("El mínimo de episodios es 1")
+            }
+            if (view.inputNumTemporadas.text.isEmpty() || view.inputNumTemporadas.text.toString().toInt() < 1) {
+                campos_validos = false
+                view.inputNumTemporadas.setError("El mínimo de temporadas es 1")
+            }
+
+            // Añadir valores
+            var serie_Guardar :Serie = Serie()
+            serie_Guardar.nombre = inputNombre.text.toString()
+
+            // Guardar registro
+            if (campos_validos){
+                activityCallback?.saveSerie(serie_Guardar)
+                activity?.onBackPressed()
+            }
+        }
+
         return view
     }
 
@@ -85,5 +117,6 @@ class NuevoCalculoFragment : Fragment() {
     interface OnFragmentInteractionListener {
         fun setTitle(title: String)
         fun setBackButton(valor: Boolean)
+        fun saveSerie(serie :Serie)
     }
 }

@@ -25,7 +25,6 @@ class AdapterHistory(items :ArrayList<Serie>): RecyclerView.Adapter<AdapterHisto
 		val item = items?.get(position)
 
 		holder.nombre?.text= item?.nombre
-		Glide.with(holder.itemView).load(item?.foto).into(holder.foto!!)
 	}
 
 	override fun getItemCount(): Int {

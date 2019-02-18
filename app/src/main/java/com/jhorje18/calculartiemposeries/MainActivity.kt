@@ -118,6 +118,14 @@ class MainActivity : AppCompatActivity(), PrincipalFragment.OnFragmentInteractio
         }
     }
 
+    /**
+     * Metodo para añadir serie a la Base de datos
+     * @param serie {Serie} Serie que se va a registrar
+     */
+    override fun saveSerie(serie: Serie) {
+        BBDD_Series?.addSerie(serie)
+    }
+
     override fun onFragmentInteraction(uri: Uri) {
     }
 }

@@ -20,7 +20,7 @@ val COL_NUMERO_EPISODIOS_DIA = "Numero_Episodios_Dia"
 val COL_DIAS_VISUALIZACION = "Dias_Visualizacion"
 
 class SeriesSQLiteOpenHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
-    
+
     override fun onCreate(db: SQLiteDatabase?) {
         val createTable = "CREATE TABLE "+ TABLE_NAME + " (" +
                 COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
