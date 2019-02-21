@@ -42,12 +42,20 @@ class HistorialFragment : Fragment() {
         // Cargamos valores
         series = base_activity!!.obtenerListadoSeries()
 
-        lista = view.recyclerHistory
-        layoutManager = LinearLayoutManager(activity!!) as RecyclerView.LayoutManager?
+        if (series!!.size > 1){
+            lista = view.recyclerHistory
+            layoutManager = LinearLayoutManager(activity!!) as RecyclerView.LayoutManager?
 
-        adaptador = AdapterHistory(series!!)
-        lista?.layoutManager = layoutManager
-        lista?.adapter = adaptador
+            adaptador = AdapterHistory(series!!)
+            lista?.layoutManager = layoutManager
+            lista?.adapter = adaptador
+
+            lista?.visibility = View.VISIBLE
+            view.layoutSinResultados.visibility = View.GONE
+        } else {
+            lista?.visibility = View.GONE
+            view.layoutSinResultados.visibility = View.VISIBLE
+        }
 
         return view
     }
